@@ -115,7 +115,7 @@ public class WarGame extends Game {
             }
         } else {
             System.out.println("The war ends in a tie! No cards are taken.");
-            // In case of another tie during the war, you may choose to implement another war or end the game.
+         
         }
     }
 
