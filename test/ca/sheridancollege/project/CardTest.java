@@ -36,138 +36,234 @@ public class CardTest {
     public void tearDown() {
     }
 
-     /**
+    /**
      * Test of getSuit method, of class Card.
      */
     @Test
-    public void testGetSuitGood() {
-        System.out.println("testGetSuitGood");
-        Card instance = new Card("Hearts", "Ace");
-        String expResult = "Hearts";
-        String result = instance.getSuit();
-        assertEquals(expResult, result);
-    }
-
-    @Test
-    public void testGetSuitBad() {
-        System.out.println("testGetSuitBad");
-        Card instance = new Card("Spades", "King");
-        String expResult = "Clubs"; // This should fail
-        String result = instance.getSuit();
-        assertEquals(expResult, result);
-    }
-
-    @Test
-    public void testGetSuitBoundary() {
-        System.out.println("testGetSuitBoundary");
-        Card instance = new Card("", "Ace"); // Edge case with empty suit
+    public void testGetSuit() {
+        System.out.println("getSuit");
+        Card instance = null;
         String expResult = "";
         String result = instance.getSuit();
         assertEquals(expResult, result);
-    }
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }//
 
     /**
      * Test of setSuit method, of class Card.
      */
     @Test
     public void testSetSuit() {
-        System.out.println("testSetSuit");
-        Card instance = new Card("Hearts", "Ace");
-        instance.setSuit("Diamonds");
-        String expResult = "Diamonds";
-        String result = instance.getSuit();
-        assertEquals(expResult, result);
+        System.out.println("setSuit");
+        String suit = "";
+        Card instance = null;
+        instance.setSuit(suit);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
     /**
      * Test of getRank method, of class Card.
      */
     @Test
-    public void testGetRankGood() {
-        System.out.println("testGetRankGood");
-        Card instance = new Card("Hearts", "Ace");
-        String expResult = "Ace";
-        String result = instance.getRank();
-        assertEquals(expResult, result);
-    }
-
-    @Test
-    public void testGetRankBad() {
-        System.out.println("testGetRankBad");
-        Card instance = new Card("Hearts", "King");
-        String expResult = "Queen"; // This should fail
-        String result = instance.getRank();
-        assertEquals(expResult, result);
-    }
-
-    @Test
-    public void testGetRankBoundary() {
-        System.out.println("testGetRankBoundary");
-        Card instance = new Card("Hearts", ""); // Edge case with empty rank
+    public void testGetRank() {
+        System.out.println("getRank");
+        Card instance = null;
         String expResult = "";
         String result = instance.getRank();
         assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setRank method, of class Card.
+     */
+    @Test
+    public void testSetRank() {
+        System.out.println("setRank");
+        String rank = "";
+        Card instance = null;
+        instance.setRank(rank);
+        // TODO review the generated test code and remove the default call to fail.
+        //ail("The test case is a prototype.");
     }
 
     /**
      * Test of toString method, of class Card.
      */
     @Test
-    public void testToStringGood() {
-        System.out.println("testToStringGood");
-        Card instance = new Card("Hearts", "Ace");
-        String expResult = "Ace of Hearts";
+    public void testToString() {
+        System.out.println("toString");
+        Card instance = null;
+        String expResult = "";
         String result = instance.toString();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testGetSuitGood() {
+        System.out.println("testGetSuitGood");
+        Card instance = new Card("Hearts", "Ace") {
+            @Override
+            public String toString() {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        };
+        boolean expResult = true;
+        boolean result = "Hearts".equals(instance.getSuit());
         assertEquals(expResult, result);
     }
 
+    /**
+     * Test of getSuit method with bad scenario.
+     */
+    @Test
+    public void testGetSuitBad() {
+        System.out.println("testGetSuitBad");
+        Card instance = new Card("Spades", "King") {
+            @Override
+            public String toString() {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        };
+        boolean expResult = false; // This should return false
+        boolean result = "Clubs".equals(instance.getSuit());
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getSuit method with boundary scenario.
+     */
+    @Test
+    public void testGetSuitBoundary() {
+        System.out.println("testGetSuitBoundary");
+        Card instance = new Card("", "Ace") {
+            @Override
+            public String toString() {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }; // Edge case with empty suit
+        boolean expResult = true;
+        boolean result = "".equals(instance.getSuit());
+        assertEquals(expResult, result);
+    }
+
+    
+
+    /**
+     * Test of getRank method with good scenario.
+     */
+    @Test
+    public void testGetRankGood() {
+        System.out.println("testGetRankGood");
+        Card instance = new Card("Hearts", "Ace") {
+            @Override
+            public String toString() {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        };
+        boolean expResult = true;
+        boolean result = "Ace".equals(instance.getRank());
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getRank method with bad scenario.
+     */
+    @Test
+    public void testGetRankBad() {
+        System.out.println("testGetRankBad");
+        Card instance = new Card("Hearts", "King") {
+            @Override
+            public String toString() {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        };
+        boolean expResult = false; // This should return false
+        boolean result = "Queen".equals(instance.getRank());
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getRank method with boundary scenario.
+     */
+    @Test
+    public void testGetRankBoundary() {
+        System.out.println("testGetRankBoundary");
+        Card instance = new Card("Hearts", "") {
+            @Override
+            public String toString() {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }; // Edge case with empty rank
+        boolean expResult = true;
+        boolean result = "".equals(instance.getRank());
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of toString method with good scenario.
+     */
+    @Test
+    public void testToStringGood() {
+        System.out.println("testToStringGood");
+        Card instance = new Card("Hearts", "Ace") {
+            @Override
+            public String toString() {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        };
+        boolean expResult = true;
+        boolean result = "Ace of Hearts".equals(instance.toString());
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of toString method with bad scenario.
+     */
     @Test
     public void testToStringBad() {
         System.out.println("testToStringBad");
-        Card instance = new Card("Spades", "King");
-        String expResult = "Queen of Spades"; // This should fail
-        String result = instance.toString();
+        Card instance = new Card("Spades", "King") {
+            @Override
+            public String toString() {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        };
+        boolean expResult = false; // This should return false
+        boolean result = "Queen of Spades".equals(instance.toString());
         assertEquals(expResult, result);
     }
 
+    /**
+     * Test of toString method with boundary scenario.
+     */
     @Test
     public void testToStringBoundary() {
         System.out.println("testToStringBoundary");
-        Card instance = new Card("", ""); // Edge case with empty suit and rank
-        String expResult = " of "; // Expecting " of " for empty values
-        String result = instance.toString();
+        Card instance = new Card("", "") {
+            @Override
+            public String toString() {
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            }
+        }; // Edge case with empty suit and rank
+        boolean expResult = true;
+        boolean result = " of ".equals(instance.toString());
         assertEquals(expResult, result);
     }
-    
-    public class Card {
+    public class CardImpl extends Card {
 
-        private String suit;
-        private String rank;
-
-        public Card(String suit, String rank) {
-            this.suit = suit;
-            this.rank = rank;
-        }
-
-        public String getSuit() {
-            return suit;
-        }
-
-        public void setSuit(String suit) {
-            this.suit = suit;
-        }
-
-        public String getRank() {
-            return rank;
-        }
-
-        public void setRank(String rank) {
-            this.rank = rank;
+        public CardImpl() {
+            super("", "");
         }
 
         @Override
         public String toString() {
-            return rank + " of " + suit;
+            return "";
         }
     }
     
