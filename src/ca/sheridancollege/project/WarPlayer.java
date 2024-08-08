@@ -16,7 +16,7 @@ public class WarPlayer extends Player {
 
     @Override
     public void play() {
-        // Implement player-specific logic if necessary
+     
     }
 
     public Card playCard() {
