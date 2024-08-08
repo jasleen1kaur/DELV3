@@ -24,7 +24,7 @@ public class Deck {
         String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
         for (String suit : suits) {
             for (String rank : ranks) {
-                cards.add(new Card(suit, rank) {});
+                cards.add(new StandardCard(suit, rank));
             }
         }
     }
@@ -43,5 +43,4 @@ public class Deck {
         }
         return null;
     }
-    
 }
