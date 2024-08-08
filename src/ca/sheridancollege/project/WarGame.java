@@ -65,13 +65,61 @@ public class WarGame extends Game {
             player2.getGroup().addCard(card1);
             player2.getGroup().addCard(card2);
         } else {
-            System.out.println("It's a tie!");
+            System.out.println("It's a tie! War begins...");
+
            
+            handleWar();
+        }
+    }
+
+    private void handleWar() {
+        if (player1.getGroup().getCards().size() < 4 || player2.getGroup().getCards().size() < 4) {
+            System.out.println("One of the players does not have enough cards to continue the war.");
+            return;
+        }
+
+        // Draw three cards face down
+        Card[] faceDownCards1 = new Card[3];
+        Card[] faceDownCards2 = new Card[3];
+
+        for (int i = 0; i < 3; i++) {
+            faceDownCards1[i] = player1.playCard();
+            faceDownCards2[i] = player2.playCard();
+        }
+
+        // Draw one card face up
+        Card faceUpCard1 = player1.playCard();
+        Card faceUpCard2 = player2.playCard();
+
+        System.out.println("War! " + player1.getName() + " plays " + faceUpCard1 + " face up.");
+        System.out.println("War! " + player2.getName() + " plays " + faceUpCard2 + " face up.");
+
+        int warResult = compareCards(faceUpCard1, faceUpCard2);
+        if (warResult > 0) {
+            System.out.println(player1.getName() + " wins the war!");
+            player1.getGroup().addCard(faceUpCard1);
+            player1.getGroup().addCard(faceUpCard2);
+            // Collect all cards played in the war (face down + face up)
+            for (int i = 0; i < 3; i++) {
+                player1.getGroup().addCard(faceDownCards1[i]);
+                player1.getGroup().addCard(faceDownCards2[i]);
+            }
+        } else if (warResult < 0) {
+            System.out.println(player2.getName() + " wins the war!");
+            player2.getGroup().addCard(faceUpCard1);
+            player2.getGroup().addCard(faceUpCard2);
+            // Collect all cards played in the war (face down + face up)
+            for (int i = 0; i < 3; i++) {
+                player2.getGroup().addCard(faceDownCards1[i]);
+                player2.getGroup().addCard(faceDownCards2[i]);
+            }
+        } else {
+            System.out.println("The war ends in a tie! No cards are taken.");
+            // In case of another tie during the war, you may choose to implement another war or end the game.
         }
     }
 
     private int compareCards(Card card1, Card card2) {
-        // Implement comparison logic for cards
         String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
         int rank1 = java.util.Arrays.asList(ranks).indexOf(card1.getRank());
         int rank2 = java.util.Arrays.asList(ranks).indexOf(card2.getRank());
